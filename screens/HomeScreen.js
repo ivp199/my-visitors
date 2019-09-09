@@ -12,13 +12,13 @@ const HomeScreen = props => {
         <View style={styles.buttonContainer}>
           <ButtonAsImage
             imageSource={require('../assets/add-user.png')}
-            onPress={() => {}}
+            onPress={() => props.navigation.push('AddVisitor')}
           />
         </View>
         <View style={styles.buttonContainer}>
           <ButtonAsImage
             imageSource={require('../assets/all-users.png')}
-            onPress={() => {}}
+            onPress={() => props.navigation.push('AllUsers')}
           />
         </View>
       </View>
@@ -26,6 +26,10 @@ const HomeScreen = props => {
     </View>
   );
 };
+
+HomeScreen.navigationOptions = {
+  header: null
+}
 
 const styles = StyleSheet.create({
   screen: {
@@ -42,8 +46,7 @@ const styles = StyleSheet.create({
   },
   buttons: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'baseline'    
+    justifyContent: 'space-around',  
   },
   buttonContainer: {
     alignItems: 'center',

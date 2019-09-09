@@ -1,14 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import HomeScreen from './screens/HomeScreen';
+import AppNavigator from './navigation/AppNavigator';
 import Colors from './constants/colors';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <HomeScreen />
-    </View>
-  );
+  return <AppNavigator />;
 }
 
 const styles = StyleSheet.create({
