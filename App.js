@@ -1,15 +1,39 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { ActivityIndicator } from 'react-native';
 import AppNavigator from './navigation/AppNavigator';
-import Colors from './constants/colors';
+import defaultVisitors from './constants/visitors';
+const persistenceKey = "persistenceKey";
+
+// const persistNavigationState = async (navState) => {
+//   try {
+//     await AsyncStorage.setItem(persistenceKey, JSON.stringify(navState))
+//   } catch(err) {
+//     // handle the error according to your needs
+//   }
+// }
+// const loadNavigationState = async () => {
+//   const jsonString = await AsyncStorage.getItem(persistenceKey)
+//   return JSON.parse(jsonString)
+// }
+
 
 export default function App() {
-  return <AppNavigator />;
-}
+  const [visitors, setVisitors] = useState(defaultVisitors);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.primaryBackgroundColor
-  },
-});
+  const addVisitor = (data, cb) => {
+    setVisitors([...visitors, data]);
+    cb();
+  }
+
+  return (
+    <AppNavigator
+      // persistNavigationState={persistNavigationState}
+      // loadNavigationState={loadNavigationState}
+      // renderLoadingExperimental={() => <ActivityIndicator />}
+      screenProps={{
+        visitors,
+        addVisitor,
+      }}
+    />
+  );
+}

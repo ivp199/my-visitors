@@ -3,24 +3,19 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import Colors from '../constants/colors';
 
 const ButtonComponent = props => {
-  const { title, style, buttonStyle, buttonTextStyle, onPress } = props;
+  const { title, style, buttonTextStyle, ...restProps } = props;
   return (
-    <View style={[styles.container, style]}>
-      <TouchableOpacity
-        activeOpacity={0.8}
-        style={[styles.button, buttonStyle]}
-        onPress={onPress}
-      >
-        <Text style={[styles.buttonText, buttonTextStyle]}>{title}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      {...restProps}
+      style={[styles.button, style]}
+    >
+      <Text style={[styles.buttonText, buttonTextStyle]}>{title}</Text>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 10,
-  },
   button: {
     alignItems: 'center',
     backgroundColor: Colors.themeBackgroundColor,
