@@ -46,6 +46,7 @@ const InputText = props => {
     <View style={styles.container}>
       <Animated.Text style={{...styles.label, ...labelStyle}}>{label}</Animated.Text>
       <TextInput
+        value={value}
         {...rest}
         style={{...styles.textInput, ...props.style}}
         onFocus={handleFocus}

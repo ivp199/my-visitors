@@ -27,7 +27,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: 'AllUsers',
+    initialRouteName: 'Home',
     headerLayoutPreset: 'center',
     defaultNavigationOptions: {
       headerStyle: {

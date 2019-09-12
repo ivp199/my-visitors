@@ -5,8 +5,14 @@ import RoundedBorderImage from '../components/RoundedBorderImage';
 import VisitorCardView from '../components/VisitorCardView';
 
 const AllUsersScreen = props => {
+  const { visitors } = props.screenProps;
   const onUserPress = id => {
-    props.navigation.push('VisitorDetails');
+    const selectedVisitor = visitors.find(v => v.id === id);
+
+    props.navigation.push('VisitorDetails', {
+      name: `${selectedVisitor.firstName} ${selectedVisitor.lastName}`,
+      visitor: selectedVisitor
+    });
   }
 
   return (
@@ -16,7 +22,7 @@ const AllUsersScreen = props => {
       </Banner>
       <FlatList
         keyExtractor={item => item.id.toString()}
-        data={props.screenProps.visitors}
+        data={visitors}
         renderItem={itemData => (
           <VisitorCardView
             visitor={itemData.item}

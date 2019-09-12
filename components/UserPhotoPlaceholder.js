@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import Colors from '../constants/colors';
 
-const UserPhotoPlaceholder = ({onPress, style, imageStyle}) => {
+const UserPhotoPlaceholder = ({onPress, style, imageStyle, visitorImage}) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
@@ -11,7 +11,7 @@ const UserPhotoPlaceholder = ({onPress, style, imageStyle}) => {
     >
       <Image
         style={[styles.image, imageStyle]}
-        source={require('../assets/capture-camera.png')}
+        source={visitorImage || require('../assets/capture-camera.png')}
       />
     </TouchableOpacity>
   );
