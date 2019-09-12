@@ -26,7 +26,7 @@ const VisitorCardView = props => {
           {outTime && <Text style={styles.info}>Out: {outTime}</Text>}
         </View>
 
-        {outTime && <ButtonAsImage
+        {!outTime && <ButtonAsImage
                       imageSource={require("../assets/exit.png")}
                       style={styles.exitIconContainerStyle}
                       imageStyle={styles.exitIcon}

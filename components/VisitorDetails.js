@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, KeyboardAvoidingView } from 'react-native';
 import UserPhotoPlaceholder from './UserPhotoPlaceholder';
 import InputText from './InputText';
 import Banner from './Banner';
@@ -92,25 +92,27 @@ const VisitorDetails = props => {
         />
       </View>
 
-      <View style={styles.inputContainer}>
-        <InputText
-          style={styles.mutlilineInputBox}
-          label="Purpose of visit"
-          value={purpose}
-          onChangeText={text => setPurpose(text)}
-          // multiline={true}
-          editable={editable}
-        />
-      </View>
-
-      <View style={styles.inputContainer}>
-        <InputText
-          label="Coming From"
-          value={comingFrom}
-          onChangeText={text => setComingFrom(text)}
-          editable={editable}
-        />
-      </View>
+      <KeyboardAvoidingView behavior="height" keyboardVerticalOffset="60">
+        <View style={styles.inputContainer}>
+          <InputText
+            style={styles.mutlilineInputBox}
+            label="Purpose of visit"
+            value={purpose}
+            onChangeText={text => setPurpose(text)}
+            // multiline={true}
+            editable={editable}
+          />
+        </View>
+      
+        <View style={styles.inputContainer}>
+          <InputText
+            label="Coming From"
+            value={comingFrom}
+            onChangeText={text => setComingFrom(text)}
+            editable={editable}
+          />
+        </View>
+      </KeyboardAvoidingView>
 
       {inTime && <View style={styles.inputContainer}>
                   <InputText

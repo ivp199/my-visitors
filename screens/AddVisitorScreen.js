@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import VisitorDetails from '../components/VisitorDetails';
 import ButtonComponent from '../components/ButtonComponent';
 
@@ -58,34 +58,32 @@ const AddVisitorScreen = props => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <ScrollView>
-        <KeyboardAvoidingView behavior="position" keyboardVerticalOffset="60">
-          <VisitorDetails
-            onVisitorImagePress={() => {}}
-            firstName={firstName}
-            setFirstName={setFirstName}
-            lastName={lastName}
-            setLastName={setLastName}
-            mobileNumber={mobileNumber}
-            setMobileNumber={handleMobileNumberChange}
-            email={email}
-            setEmail={setEmail}
-            gender={gender}
-            setGender={setGender}
-            purpose={purpose}
-            setPurpose={setPurpose}
-            comingFrom={comingFrom}
-            setComingFrom={setComingFrom}
-          />
+        <VisitorDetails
+          onVisitorImagePress={() => {}}
+          firstName={firstName}
+          setFirstName={setFirstName}
+          lastName={lastName}
+          setLastName={setLastName}
+          mobileNumber={mobileNumber}
+          setMobileNumber={handleMobileNumberChange}
+          email={email}
+          setEmail={setEmail}
+          gender={gender}
+          setGender={setGender}
+          purpose={purpose}
+          setPurpose={setPurpose}
+          comingFrom={comingFrom}
+          setComingFrom={setComingFrom}
+        />
 
-          {renderError()}
-          <View style={styles.buttonContainer}>
-            <ButtonComponent
-              style={styles.button}
-              title='Add Visitor'
-              onPress={() => handleAddVisitor()}
-            />
-          </View>
-        </KeyboardAvoidingView>
+        {renderError()}
+        <View style={styles.buttonContainer}>
+          <ButtonComponent
+            style={styles.button}
+            title='Add Visitor'
+            onPress={() => handleAddVisitor()}
+          />
+        </View>
       </ScrollView>
     </TouchableWithoutFeedback>
   );

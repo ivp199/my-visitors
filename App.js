@@ -25,6 +25,18 @@ export default function App() {
     cb();
   }
 
+  const addOutTime = (id, outTime) => {
+    const newVisitors = visitors.map(visitor => {
+      if (visitor.id === id) {
+        visitor.outTime = outTime;
+      }
+      return visitor;
+    })
+
+    setVisitors(newVisitors);
+    console.log(id, outTime);
+  }
+
   return (
     <AppNavigator
       // persistNavigationState={persistNavigationState}
@@ -33,6 +45,7 @@ export default function App() {
       screenProps={{
         visitors,
         addVisitor,
+        addOutTime
       }}
     />
   );
